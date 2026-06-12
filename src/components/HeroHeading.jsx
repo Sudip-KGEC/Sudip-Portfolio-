@@ -1,4 +1,4 @@
-import { words } from "../constants.js";
+import { words } from "../constants/index.js";
 
 /* animated title */
 const HeroHeading = () => (

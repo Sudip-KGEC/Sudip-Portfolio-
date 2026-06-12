@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { navLinks } from "@/constants.js";
+import { navLinks } from "../constants/index.js";
 import NavLink from "../components/NavLink.jsx";
 import ContactButton from "../components/ContactButton.jsx";
 import MobileMenu from "../components/MobileMenu.jsx";

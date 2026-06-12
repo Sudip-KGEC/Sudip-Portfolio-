@@ -1,4 +1,4 @@
-import { abilities } from "@/constants.js";
+import { abilities } from "../constants/index.js";
 import TitleHeader from "../components/TitleHeader.jsx";
 
 const FeatureCards = () => (

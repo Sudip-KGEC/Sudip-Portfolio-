@@ -1,4 +1,4 @@
-import { techStackIcons } from "@/constants.js";
+import { techStackIcons } from "../constants/index.js";
 import TitleHeader from "../components/TitleHeader.jsx";
 import TechCard from "../components/TechCard.jsx";
 

@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, lazy, Suspense } from "react";
-import { projects } from "@/constants.js";
+import { projects } from "../constants/index.js";
 import TitleHeader from "../components/TitleHeader.jsx";
 
 const ProjectCard = lazy(() => import("../components/ProjectCard.jsx"));
