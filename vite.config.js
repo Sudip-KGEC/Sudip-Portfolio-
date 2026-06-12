@@ -10,23 +10,19 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "src"),
     },
   },
-  optimizeDeps: {
-    include: ["react", "react-dom", "gsap", "three"],
-  },
   build: {
     minify: "esbuild",
     sourcemap: false,
-    chunkSizeWarningLimit: 800,
+    chunkSizeWarningLimit: 1000, // Increased limit
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("node_modules/three/")) return "three-core";
-          if (id.includes("three-stdlib") || id.includes("OrbitControls")) return "three-addons";
-          if (id.includes("@react-three")) return "r3f";
-          if (id.includes("gsap")) return "animation";
-          if (id.includes("react-dom") || id.includes("react/")) return "vendor";
-          if (id.includes("ContactExperience") || id.includes("contact")) return "contact-3d";
-          if (id.includes("MacbookExperience") || id.includes("hero_models")) return "hero-3d";
+          // Keep vendor dependencies together
+          if (id.includes("node_modules")) {
+            if (id.includes("three")) return "vendor-three";
+            if (id.includes("gsap")) return "vendor-animation";
+            return "vendor";
+          }
         },
       },
     },
