@@ -1,6 +1,6 @@
 import { techStackIcons } from "@/constants";
-import TitleHeader from "@/components/TitleHeader";
-import TechCard from "@/components/TechCard";
+import TitleHeader from "../components/TitleHeader";
+import TechCard from "../components/TechCard";
 
 const TechStack = () => (
   <div id="skills" className="flex justify-center items-center px-5 py-20 md:px-10 md:py-40 bg-black">

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { counterItems } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -11,6 +11,9 @@ const AnimatedCounter = () => {
   const countersRef = useRef([]);
 
   useGSAP(() => {
+
+    if (!ScrollTrigger) return;
+
     countersRef.current.forEach((counter, index) => {
       const el = counter.querySelector(".counter-number");
       const { value, suffix } = counterItems[index];
@@ -22,10 +25,13 @@ const AnimatedCounter = () => {
         duration: 2.5,
         ease: "power2.out",
         snap: { innerText: 1 },
-        onComplete: () => (el.textContent = `${value}${suffix}`),
+        onUpdate: function() {
+          el.innerText = Math.floor(this.targets()[0].innerText) + suffix;
+        },
         scrollTrigger: {
           trigger: "#counter",
-          start: "top center",
+          start: "top 80%",
+          toggleActions: "play none none none",
         },
       });
     });

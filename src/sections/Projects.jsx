@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState, lazy, Suspense } from "react";
 import { projects } from "@/constants";
-import TitleHeader from "@/components/TitleHeader";
+import TitleHeader from "../components/TitleHeader";
 
-const ProjectCard = lazy(() => import("@/components/ProjectCard"));
+const ProjectCard = lazy(() => import("../components/ProjectCard"));
 
 const CardSkeleton = () => (
   <div className="w-full h-125 rounded-2xl bg-zinc-900 animate-pulse">

@@ -2,14 +2,14 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import Button from "@/components/Button";
-import TechTicker from "@/components/TechTicker";
-import OpenToWorkBadge from "@/components/OpenToWorkBadge";
-import HeroHeading from "@/components/HeroHeading";
-import DownloadCVButton from "@/components/DownloadCVButton";
-import HeroOrbit from "@/components/HeroOrbit";
-import GlowBackground from "@/components/GlowBackground";
-import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
+import Button from "../components/Button";
+import TechTicker from "../components/TechTicker";
+import OpenToWorkBadge from "../components/OpenToWorkBadge";
+import HeroHeading from "../components/HeroHeading";
+import DownloadCVButton from "../components/DownloadCVButton";
+import HeroOrbit from "../components/HeroOrbit";
+import GlowBackground from "../components/GlowBackground";
+import { GravityStarsBackground } from "../components/animate-ui/components/backgrounds/gravity-stars";
 import { techStack } from "@/constants";
 
 const TARGETS = [".hero-heading", ".hero-sub", ".hero-cta"];

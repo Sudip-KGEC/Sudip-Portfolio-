@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 
 const MacbookExperience = lazy(() =>
-  import("@/components/models/hero_models/MacbookExperience")
+  import("../components/models/hero_models/MacbookExperience")
 );
 
 const HeroOrbit = () => (

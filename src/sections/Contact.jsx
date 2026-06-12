@@ -1,9 +1,9 @@
 import { useRef, useState, lazy, Suspense, useCallback, memo } from "react";
 import emailjs from "@emailjs/browser";
-import TitleHeader from "@/components/TitleHeader";
+import TitleHeader from "../components/TitleHeader.jsx";
 
 const ContactExperience = lazy(() =>
-  import("@/components/models/contact/ContactExperience")
+  import("../components/models/contact/ContactExperience.jsx")
 );
 
 const EMPTY_FORM = { name: "", email: "", message: "" };
