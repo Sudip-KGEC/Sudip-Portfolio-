@@ -4,27 +4,44 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react({
+      jsxRuntime: 'automatic',
+      jsxImportSource: 'react',
+    }),
+    tailwindcss()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "src"),
     },
   },
   build: {
+    target: 'es2020',
     minify: "esbuild",
     sourcemap: false,
-    chunkSizeWarningLimit: 1000, // Increased limit
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          // Keep vendor dependencies together
-          if (id.includes("node_modules")) {
-            if (id.includes("three")) return "vendor-three";
-            if (id.includes("gsap")) return "vendor-animation";
-            return "vendor";
-          }
-        },
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'scheduler'],
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei']
+        }
       },
     },
   },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'three', '@react-three/fiber', '@react-three/drei'],
+    exclude: [],
+    esbuildOptions: {
+      target: 'es2020',
+      // Critical: Keep React's JSX runtime intact
+      supported: {
+        'jsx': 'automatic'
+      }
+    }
+  },
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' }
+  }
 });
