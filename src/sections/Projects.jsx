@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState, lazy, Suspense } from "react";
-import { projects } from "@/constants";
-import TitleHeader from "../components/TitleHeader";
+import { projects } from "@/constants.js";
+import TitleHeader from "../components/TitleHeader.jsx";
 
-const ProjectCard = lazy(() => import("../components/ProjectCard"));
+const ProjectCard = lazy(() => import("../components/ProjectCard.jsx"));
 
 const CardSkeleton = () => (
   <div className="w-full h-125 rounded-2xl bg-zinc-900 animate-pulse">
@@ -13,17 +13,17 @@ const CardSkeleton = () => (
   </div>
 );
 
-const NAVBAR_HEIGHT = 80; // static fallback — avoids offsetHeight reflow on every render
+const NAVBAR_HEIGHT = 80; 
 
 const Projects = () => {
   const sectionRef = useRef(null);
   const [navbarHeight, setNavbarHeight] = useState(NAVBAR_HEIGHT);
 
-  // Read navbar height once after mount — outside of any animation loop
+  
   useEffect(() => {
     const navbar = document.querySelector("nav");
     if (navbar) {
-      // requestAnimationFrame ensures layout is settled before reading offsetHeight
+  
       requestAnimationFrame(() => setNavbarHeight(navbar.offsetHeight));
     }
   }, []);
@@ -32,7 +32,7 @@ const Projects = () => {
   useEffect(() => {
     const prefetch = () => {
       import("@/sections/Experience");
-      import("@/sections/TechStack");
+      import("@/sections/TechStack.jsx");
     };
     if ("requestIdleCallback" in window) {
       const id = requestIdleCallback(prefetch);

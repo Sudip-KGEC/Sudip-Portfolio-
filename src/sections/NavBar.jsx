@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { navLinks } from "@/constants";
+import { navLinks } from "@/constants.js";
 import NavLink from "../components/NavLink.jsx";
-import ContactButton from "../components/ContactButton";
-import MobileMenu from "../components/MobileMenu";
+import ContactButton from "../components/ContactButton.jsx";
+import MobileMenu from "../components/MobileMenu.jsx";
 
 const SCROLL_Y = 10;
 

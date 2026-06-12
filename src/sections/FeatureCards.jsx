@@ -1,5 +1,5 @@
-import { abilities } from "@/constants";
-import TitleHeader from "../components/TitleHeader";
+import { abilities } from "@/constants.js";
+import TitleHeader from "../components/TitleHeader.jsx";
 
 const FeatureCards = () => (
   <div className="w-full px-5 max-w-6xl mx-auto py-12 bg-black/20">

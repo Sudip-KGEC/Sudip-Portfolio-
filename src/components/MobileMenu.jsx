@@ -1,4 +1,4 @@
-import ContactButton from "../components/ContactButton";
+import ContactButton from "../components/ContactButton.jsx";
 
 
 /* mobile drawer */

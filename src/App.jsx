@@ -1,19 +1,19 @@
 import { lazy, Suspense } from "react";
 
 // Critical above-the-fold — loaded eagerly
-import Navbar from "./sections/NavBar";
-import Hero from "./sections/Hero";
-import CustomCursor from "./components/CustomCursor";
-import PerformanceOptimizer from "./components/PerformanceOptimizer";
+import Navbar from "./sections/NavBar.jsx";
+import Hero from "./sections/Hero.jsx";
+import CustomCursor from "./components/CustomCursor.jsx";
+import PerformanceOptimizer from "./components/PerformanceOptimizer.jsx";
 
 // Below-the-fold — lazy loaded
-const Projects = lazy(() => import("./sections/Projects"));
-const FeatureCards = lazy(() => import("./sections/FeatureCards"));
-const Experience = lazy(() => import("./sections/Experience"));
-const TechStack = lazy(() => import("./sections/TechStack"));
-const Testimonials = lazy(() => import("./sections/Testimonials"));
-const Contact = lazy(() => import("./sections/Contact"));
-const Footer = lazy(() => import("./sections/Footer"));
+const Projects = lazy(() => import("./sections/Projects.jsx"));
+const FeatureCards = lazy(() => import("./sections/FeatureCards.jsx"));
+const Experience = lazy(() => import("./sections/Experience.jsx"));
+const TechStack = lazy(() => import("./sections/TechStack.jsx"));
+const Testimonials = lazy(() => import("./sections/Testimonials.jsx"));
+const Contact = lazy(() => import("./sections/Contact.jsx"));
+const Footer = lazy(() => import("./sections/Footer.jsx"));
 
 // Minimal skeleton shown while a section loads
 const SectionFallback = () => (

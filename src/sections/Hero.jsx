@@ -2,15 +2,15 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import Button from "../components/Button";
-import TechTicker from "../components/TechTicker";
-import OpenToWorkBadge from "../components/OpenToWorkBadge";
-import HeroHeading from "../components/HeroHeading";
-import DownloadCVButton from "../components/DownloadCVButton";
-import HeroOrbit from "../components/HeroOrbit";
-import GlowBackground from "../components/GlowBackground";
-import { GravityStarsBackground } from "../components/animate-ui/components/backgrounds/gravity-stars";
-import { techStack } from "@/constants";
+import Button from "../components/Button.jsx";
+import TechTicker from "../components/TechTicker.jsx";
+import OpenToWorkBadge from "../components/OpenToWorkBadge.jsx";
+import HeroHeading from "../components/HeroHeading.jsx";
+import DownloadCVButton from "../components/DownloadCVButton.jsx";
+import HeroOrbit from "../components/HeroOrbit.jsx";
+import GlowBackground from "../components/GlowBackground.jsx";
+import { GravityStarsBackground } from "../components/animate-ui/components/backgrounds/gravity-stars.jsx";
+import { techStack } from "@/constants.js";
 
 const TARGETS = [".hero-heading", ".hero-sub", ".hero-cta"];
 

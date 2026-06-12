@@ -1,5 +1,5 @@
-import GlowCard from "./GlowCard";
-import { testimonials } from "../constants";
+import GlowCard from "./GlowCard.jsx";
+import { testimonials } from "../constants.js";
 
 const ReviewTicker = () => {
   const doubled = [...testimonials, ...testimonials];

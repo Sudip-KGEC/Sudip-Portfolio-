@@ -1,7 +1,7 @@
 import { Suspense, useState, useRef, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Center } from "@react-three/drei";
-import { Macbook } from "./Macbook";
+import { Macbook } from "./Macbook.jsx";
 
 /* mute/unmute icon toggle */
 const MuteButton = ({ muted, onToggle }) => (

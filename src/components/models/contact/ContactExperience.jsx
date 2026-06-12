@@ -4,8 +4,8 @@ import { useMediaQuery } from "react-responsive";
 import { Suspense } from "react";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
-import { Room } from "./Room";
-import Lights from "./Lights";
+import { Room } from "./Room.jsx";
+import Lights from "./Lights.jsx";
 
 const ContactExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });

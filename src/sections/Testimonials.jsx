@@ -1,5 +1,5 @@
-import TitleHeader from "../components/TitleHeader";
-import ReviewTicker from "../components/ReviewTicker";
+import TitleHeader from "../components/TitleHeader.jsx";
+import ReviewTicker from "../components/ReviewTicker.jsx";
 
 const Testimonials = () => (
   <section id="testimonials" className="flex justify-center items-center px-5 mt-10 md:px-10 md:mt-20 bg-black/20 overflow-hidden">
