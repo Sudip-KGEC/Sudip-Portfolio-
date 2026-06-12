@@ -1,4 +1,4 @@
-import {Items} from "../constants/index";
+import { Items } from "../constants/index.jsx";
 
 export default function TechTicker({ speed = 45 }) {
   const doubled = [...Items, ...Items];

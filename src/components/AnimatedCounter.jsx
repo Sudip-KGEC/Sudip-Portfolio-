@@ -2,7 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { counterItems } from "../constants/index.js";
+import { counterItems } from "../constants/index.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 

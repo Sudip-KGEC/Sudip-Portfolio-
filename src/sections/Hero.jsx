@@ -10,7 +10,7 @@ import DownloadCVButton from "../components/DownloadCVButton.jsx";
 import HeroOrbit from "../components/HeroOrbit.jsx";
 import GlowBackground from "../components/GlowBackground.jsx";
 import { GravityStarsBackground } from "../components/animate-ui/components/backgrounds/gravity-stars.jsx";
-import { techStack } from "../constants/index.js";
+import { techStack } from "../constants/index.jsx";
 
 const TARGETS = [".hero-heading", ".hero-sub", ".hero-cta"];
 

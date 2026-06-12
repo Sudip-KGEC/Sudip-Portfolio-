@@ -1,4 +1,4 @@
-import { socialImgs } from "../constants/index.js"
+import { socialImgs } from "../constants/index.jsx"
 
 const Footer = () => (
   <footer className="border-t border-orange-500/10 mt-20 md:mt-40">
