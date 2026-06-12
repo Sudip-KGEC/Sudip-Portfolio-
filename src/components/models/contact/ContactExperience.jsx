@@ -1,42 +1,49 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { useMediaQuery } from "react-responsive";
+import { Suspense } from "react";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
-import Computer from "./Computer";
+import { Room } from "./Room";
+import Lights from "./Lights";
 
 const ContactExperience = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 1024px)" });
+
   return (
-    <Canvas shadows camera={{ position: [0, 3, 7], fov: 45 }}>
-      <ambientLight intensity={0.5} color="#fff4e6" />
-
-      <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffd9b3" />
-
-      <directionalLight
-        position={[5, 9, 1]}
-        castShadow
-        intensity={2.5}
-        color="#ffd9b3"
-      />
-
+    <Canvas camera={{ position: [0, 0, 11], fov: 45 }}>
+      <ambientLight intensity={0.2} color="#1a1a40" />
+      
       <OrbitControls
-        enableZoom={false}
-        minPolarAngle={Math.PI / 5}
+        enablePan={false}
+        enableZoom={!isTablet}
+        maxDistance={20}
+        minDistance={5}
+        minPolarAngle={Math.PI / 8}
         maxPolarAngle={Math.PI / 2}
       />
 
-      <group scale={[1, 1, 1]}>
-        <mesh
-          receiveShadow
-          position={[0, -1.5, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-        >
-          <planeGeometry args={[30, 30]} />
-          <meshStandardMaterial color="#a46b2d" />
-        </mesh>
-      </group>
+      <Lights />
 
-      <group scale={0.03} position={[0, -1.49, -2]} castShadow>
-        <Computer />
-      </group>
+      <Suspense fallback={null}>
+        <group
+          scale={isMobile ? 0.5 : 0.9}
+          position={[0, -2.5, 0]}
+          rotation={[0, -Math.PI / 3, 0]}
+        >
+          <Room />
+        </group>
+        
+        <EffectComposer>
+          {/* A threshold of 1.0 means regular lights won't cause generic materials to bleed/glow */}
+          <Bloom 
+            mipmapBlur
+            luminanceThreshold={1.0} 
+            intensity={2.0}
+          />
+        </EffectComposer>
+      </Suspense>
     </Canvas>
   );
 };

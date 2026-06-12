@@ -1,16 +1,14 @@
-const TitleHeader = ({ title, sub }) => {
-  return (
-    <div className="flex flex-col items-center gap-5">
-      <div className="hero-badge">
+const TitleHeader = ({ title, sub, center = true, className = "" }) => (
+  <div className={`flex flex-col ${center ? "items-center text-center" : "items-start"} gap-3 mb-8 md:mb-12 ${className} `}>
+    {sub && (
+      <div className="inline-flex items-center gap-1.5 bg-orange-600 text-white text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full mt-6">
         <p>{sub}</p>
       </div>
-      <div>
-        <h1 className="font-semibold md:text-5xl text-3xl text-center">
-          {title}
-        </h1>
-      </div>
-    </div>
-  );
-};
+    )}
+    <h2 className="font-bold md:text-4xl text-2xl tracking-tight text-white">
+      {title}
+    </h2>
+  </div>
+);
 
 export default TitleHeader;

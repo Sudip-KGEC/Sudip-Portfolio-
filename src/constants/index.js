@@ -1,7 +1,7 @@
 const navLinks = [
   {
-    name: "Work",
-    link: "#work",
+    name: "Projects",
+    link: "#projects",
   },
   {
     name: "Experience",
@@ -12,9 +12,22 @@ const navLinks = [
     link: "#skills",
   },
   {
-    name: "Testimonials",
-    link: "#testimonials",
+    name: "Achievements",
+    link: "#achievements",
   },
+  {
+    name: "About",
+    link: "#about",
+  },
+];
+
+const techStack = [
+  { text: "Next.js", imgPath: "/icons/next.svg", color: "hover:text-white" },
+  { text: "Three.js", imgPath: "/icons/three.svg", color: "hover:text-cyan-400" },
+  { text: "React.js", imgPath: "/icons/react.svg", color: "hover:text-blue-400" },
+  { text: "Node.js", imgPath: "/icons/node.svg", color: "hover:text-green-500" },
+  { text: "Express.js", imgPath: "/icons/express.svg", color: "hover:text-gray-400" },
+  { text: "MongoDB", imgPath: "/icons/mongodb.svg", color: "hover:text-emerald-500" },
 ];
 
 const words = [
@@ -110,45 +123,48 @@ const techStackImgs = [
 
 const techStackIcons = [
   {
-    name: "React Developer",
-    modelPath: "/models/react_logo-transformed.glb",
-    scale: 1,
-    rotation: [0, 0, 0],
+    name: "Next.js Developer",
+    imgPath: "/icons/next.svg",
   },
   {
     name: "Backend Developer",
-    modelPath: "/models/node-transformed.glb",
-    scale: 5,
-    rotation: [0, -Math.PI / 2, 0],
+    imgPath: "/icons/node.svg",
   },
   {
-    name: "Interactive Developer",
-    modelPath: "/models/three.js-transformed.glb",
-    scale: 0.05,
-    rotation: [0, 0, 0],
+    name: "MERN Stack Developer",
+    imgPath: "/icons/mongodb.svg",
   },
   {
-    name: "Project Manager",
-    modelPath: "/models/git-svg-transformed.glb",
-    scale: 0.05,
-    rotation: [0, -Math.PI / 4, 0],
+    name: "Interactive 3D Developer",
+    imgPath: "/icons/three.svg",
   },
 ];
 
 const expCards = [
   {
-    review: "Sudip brought creativity and technical expertise to the team, significantly improving our frontend performance. His work has been invaluable in delivering faster experiences.",
+    review: "Sudip consistently delivers polished, production-ready work with a strong eye for detail. His ability to manage projects independently and meet deadlines makes him an outstanding freelance partner.",
     imgPath: "/images/exp1.png",
     logoPath: "/images/logo1.png",
-    title: "Frontend Developer",
-    date: "January 2025 - Aug 2025",
+    title: "Freelance Developer",
+    date: "January 2026 - Present",
     responsibilities: [
-      "Developed and maintained user-facing features for the Hostinger website.",
-      "Collaborated closely with UI/UX designers to ensure seamless user experiences.",
-      "Optimized web applications for maximum speed and scalability.",
+      "Built and delivered full-stack web applications for clients across various industries.",
+      "Managed end-to-end project lifecycles from requirement gathering to deployment.",
+      "Provided ongoing maintenance, performance optimization, and feature enhancements.",
     ],
   },
- 
+  {
+    review: "Sudip has a natural talent for breaking down complex topics into content that's genuinely engaging and easy to follow. His channel is a go-to resource for aspiring developers.",
+    imgPath: "/images/exp3.png",
+    logoPath: "/images/logo3.png",
+    title: "YouTube Content Creator",
+    date: "January 2026 - Present",
+    responsibilities: [
+      "Create in-depth tutorials on web development, React, Three.js, and modern tooling.",
+      "Grow and engage a developer community through consistent, high-quality video content.",
+      "Collaborate with brands and tools relevant to the developer ecosystem.",
+    ],
+  },
 ];
 
 const expLogos = [
@@ -170,25 +186,45 @@ const testimonials = [
   {
     name: "Amit Mandal",
     mentions: "@amitmandal",
-    review:
-      "I can’t say enough good things about Sudip. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.",
+    review: "Sudip turned our complex requirements into a seamless website. His problem-solving abilities are outstanding.",
     imgPath: "/images/client1.png",
   },
   {
     name: "Suman Mahata",
     mentions: "@sumanmahata",
-    review:
-      "Working with Sudip was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.",
+    review: "Sudip transformed our outdated site into a modern platform. His attention to detail and quality are unmatched.",
     imgPath: "/images/client3.png",
   },
   {
     name: "Saikat Roy",
     mentions: "@saikatroy",
-    review:
-      "Collaborating with Sudip was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Sudip's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Sudip is the ideal partner.",
+    review: "Sudip's professionalism and dedication were evident throughout. He's the ideal partner to elevate your brand.",
     imgPath: "/images/client2.png",
   },
- 
+  {
+    name: "Puspendu Bar",
+    mentions: "@puspendubar",
+    review: "Sudip delivered our project on time with exceptional quality. Truly a reliable and talented developer.",
+    imgPath: "/images/client4.png",
+  },
+  {
+    name: "Sarit Paira",
+    mentions: "@saritpaira",
+    review: "Working with Sudip was effortless. He understood our vision immediately and executed it perfectly.",
+    imgPath: "/images/client5.png",
+  },
+  {
+    name: "Lalit Mahata",
+    mentions: "@lalitmahata",
+    review: "Sudip built us a fast, beautiful website. His technical skills and communication were top-notch.",
+    imgPath: "/images/client6.png",
+  },
+  {
+    name: "Arif Hossain",
+    mentions: "@arifhossain",
+    review: "Highly recommend Sudip for any web project. Clean code, great design sense, and always meets deadlines.",
+    imgPath: "/images/client7.png",
+  },
 ];
 
 const socialImgs = [
@@ -209,16 +245,55 @@ const socialImgs = [
   },
 ];
 
+const projects = [
+  {
+    id: 1,
+    title: "Rest-Easy",
+    description: "Smart hotel booking with secure auth, real-time availability, and a clean guest experience end to end.",
+    tech: ["Node.js", "Express", "MongoDB", "EJS"],
+    url: "https://rest-easy.dev",
+    image: "/images/project1.png",
+  },
+  {
+    id: 2,
+    title: "Mocktail Zilla",
+    description: "Immersive animated frontend with scroll-driven storytelling and fluid motion design.",
+    tech: ["React", "GSAP", "Tailwind"],
+    url: "https://mocktailzilla.dev",
+    image: "/images/project2.png",
+  },
+  {
+    id: 3,
+    title: "3D Portfolio",
+    description: "WebGL-powered portfolio with interactive 3D scenes, custom shaders, and ambient sound design.",
+    tech: ["Three.js", "React", "GLSL"],
+    url: "https://portfolio3d.dev",
+    image: "/images/project3.png",
+  },
+  {
+    id: 4,
+    title: "YC Directory",
+    description: "Searchable startup index with live filters, founder profiles, and funding round tracking.",
+    tech: ["Next.js", "Sanity", "TypeScript"],
+    url: "https://mocktailzilla.dev",
+    image: "/images/project2.png",
+  },
+];
+
+
+
 export {
   words,
   abilities,
   logoIconsList,
   counterItems,
   expCards,
+  projects,
   expLogos,
   testimonials,
   socialImgs,
   techStackIcons,
   techStackImgs,
   navLinks,
+  techStack
 };

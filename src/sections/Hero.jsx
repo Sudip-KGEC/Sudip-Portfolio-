@@ -1,79 +1,97 @@
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
-import AnimatedCounter from "../components/AnimatedCounter";
-import Button from "../components/Button";
-import { words } from "../constants";
-import HeroExperience from "../components/models/hero_models/HeroExperience";
-import ParticlesBg from "../components/ParticlesBg";
+import Button from "@/components/Button";
+import TechTicker from "@/components/TechTicker";
+import OpenToWorkBadge from "@/components/OpenToWorkBadge";
+import HeroHeading from "@/components/HeroHeading";
+import DownloadCVButton from "@/components/DownloadCVButton";
+import HeroOrbit from "@/components/HeroOrbit";
+import GlowBackground from "@/components/GlowBackground";
+import { GravityStarsBackground } from "@/components/animate-ui/components/backgrounds/gravity-stars";
+import { techStack } from "@/constants";
+
+const TARGETS = [".hero-heading", ".hero-sub", ".hero-cta"];
 
 const Hero = () => {
-  useGSAP(() => {
-    gsap.fromTo(
-      ".hero-text h1",
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
-    );
-  });
+  const containerRef = useRef(null);
+  const played = useRef(false);
+
+  useGSAP(
+    () => {
+      if (played.current) return;
+      played.current = true;
+
+      gsap.set(TARGETS, { opacity: 0, y: 30 });
+      gsap.set(".hero-model", { opacity: 0, scale: 0.8, x: 60, rotateY: -20 });
+
+      gsap
+        .timeline({ defaults: { ease: "power3.out" }, delay: 0.05 })
+        .to(TARGETS, { y: 0, opacity: 1, duration: 0.8, stagger: 0.1 })
+        .to(
+          ".hero-model",
+          { opacity: 1, scale: 1, x: 0, rotateY: 0, duration: 1, ease: "back.out(1.2)" },
+          "-=0.8"
+        );
+    },
+    { scope: containerRef, dependencies: [] }
+  );
 
   return (
-    <section id="hero" className="relative overflow-hidden">
-      <ParticlesBg/>
-      <div className="absolute top-0 left-0 z-10">
-        <img src="/images/bg.png" alt="" />
+    <section
+      id="hero"
+      ref={containerRef}
+      className="relative w-full min-h-screen overflow-hidden bg-black flex items-center mb-6"
+    >
+      {/* Background layers — all pointer-events-none so they never block content */}
+      <div className="absolute inset-0 pointer-events-none select-none" style={{ zIndex: 0 }}>
+        <img
+          src="/images/bg.png"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          className="w-full h-full object-cover opacity-40"
+        />
       </div>
 
-      <div className="hero-layout">
-        {/* LEFT: Hero Content */}
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
-          <div className="flex flex-col gap-7">
-            <div className="hero-text">
-              <h1>
-                Shaping
-                <span className="slide">
-                  <span className="wrapper">
-                    {words.map((word, index) => (
-                      <span
-                        key={index}
-                        className="flex items-center md:gap-3 gap-1 pb-2"
-                      >
-                        <img
-                          src={word.imgPath}
-                          alt="person"
-                          className="xl:size-10 md:size-8 size-7 md:p-2 p-1 rounded-full bg-white-50"
-                        />
-                        <span>{word.text}</span>
-                      </span>
-                    ))}
-                  </span>
-                </span>
-              </h1>
-              <h1>into Real Projects</h1>
-              <h1>that Deliver Results</h1>
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 1 }}>
+        <GlowBackground />
+      </div>
+
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
+        <GravityStarsBackground />
+      </div>
+
+      {/* All content above backgrounds */}
+      <div className="relative w-full max-w-360 mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 pt-18 md:pt-20 pb-10 gap-14 md:gap-10" style={{ zIndex: 10 }}>
+        <div className="w-full md:w-[55%] flex flex-col gap-8 md:gap-10">
+          <div className="flex flex-col justify-center items-center md:items-start gap-5 md:gap-6">
+            <div className="hero-sub">
+              <OpenToWorkBadge />
             </div>
 
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Sudip — a developer based in India with a deep passion <br />for coding and building meaningful digital experiences.
+            <HeroHeading />
+
+            <p className="hero-sub max-w-xl text-base md:text-lg leading-relaxed text-white/60">
+              Sudip — Full Stack Developer from India specializing in React,
+              Next.js, Node.js and modern web applications. I build fast,
+              scalable products from idea to deployment.
             </p>
-            
 
-            <Button
-              text="See My Work"
-              className="md:w-70 md:h-14 w-50 h-12"
-              id="counter"
-            />
+            <div className="hero-cta flex flex-wrap items-center justify-center gap-3 md:gap-4">
+              <Button text="See My Work" className="w-36 h-10 md:w-44 md:h-11" id="counter" />
+              <DownloadCVButton />
+            </div>
           </div>
-        </header>
 
-        {/* RIGHT: 3D Model or Visual */}
-        <figure>
-          <div className="hero-3d-layout ">
-            <HeroExperience />
-          </div>
-        </figure>
+          <TechTicker items={techStack} speed={35} />
+        </div>
+
+        <div className="w-full md:w-[52%] flex items-center justify-center md:justify-end h-[55vh] md:h-[68vh]">
+          <HeroOrbit />
+        </div>
       </div>
-
-      <AnimatedCounter />
     </section>
   );
 };
