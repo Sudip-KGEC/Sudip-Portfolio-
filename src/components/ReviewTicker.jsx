@@ -12,7 +12,7 @@ const ReviewTicker = () => {
 
       <div
         className="flex gap-6 w-max"
-        style={{ animation: "ticker-rtl 40s linear infinite" }}
+        style={{ animation: "ticker-rtl 25s linear infinite" }}
       >
         {doubled.map((testimonial, index) => (
           <div key={index} className="w-80 shrink-0">

@@ -16,14 +16,14 @@ export const techStack = [
 ];
 
 export const words = [
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
-  { text: "Ideas", imgPath: "/images/ideas.svg" },
-  { text: "Concepts", imgPath: "/images/concepts.svg" },
-  { text: "Designs", imgPath: "/images/designs.svg" },
-  { text: "Code", imgPath: "/images/code.svg" },
+  { text: "Ideas", imgPath: "/words/ideas.svg" },
+  { text: "Concepts", imgPath: "/words/concepts.svg" },
+  { text: "Designs", imgPath: "/words/designs.svg" },
+  { text: "Code", imgPath: "/words/code.svg" },
+  { text: "Ideas", imgPath: "/words/ideas.svg" },
+  { text: "Concepts", imgPath: "/words/concepts.svg" },
+  { text: "Designs", imgPath: "/words/designs.svg" },
+  { text: "Code", imgPath: "/words/code.svg" },
 ];
 
 export const counterItems = [
@@ -35,8 +35,8 @@ export const counterItems = [
 export const expCards = [
   {
     review: "Sudip consistently delivers polished, production-ready work with a strong eye for detail.",
-    imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
+    imgPath: "/images/nextGen.svg",
+    logoPath: "/images/nextgenlogo.svg",
     title: "Freelance Developer",
     date: "January 2026 - Present",
     responsibilities: [
@@ -46,8 +46,8 @@ export const expCards = [
   },
   {
     review: "Sudip has a natural talent for breaking down complex topics into engaging content.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
+    imgPath: "/images/youtube.svg",
+    logoPath: "/images/youtubelogo.svg",
     title: "YouTube Content Creator",
     date: "January 2026 - Present",
     responsibilities: [
@@ -84,6 +84,42 @@ export const testimonials = [
     review: "Sudip turned our complex requirements into a seamless website.",
     imgPath: "/images/client1.png",
   },
+  {
+    name: "Saikat Roy",
+    mentions: "@saikatroy_tech",
+    review: "The smooth scroll animations and fluid motion design he implemented completely elevated our brand's frontend experience.",
+    imgPath: "/images/client2.png",
+  },
+  {
+    name: "Suman Mandal",
+    mentions: "@suman_m",
+    review: "Incredible full-stack expertise. He built a highly secure and scalable platform using the MERN stack that handles our traffic effortlessly.",
+    imgPath: "/images/client3.png",
+  },
+  {
+    name: "Lalit Mahata",
+    mentions: "@lalit_mahata",
+    review: "Integrating AI features into our application seemed daunting, but he handled the smart chatbot and automated feedback integrations flawlessly.",
+    imgPath: "/images/client4.png",
+  },
+  {
+    name: "Puspendu Bar",
+    mentions: "@puspendu_b",
+    review: "His focus on Core Web Vitals is unmatched. Our site's performance, especially LCP and INP, improved drastically after his optimizations.",
+    imgPath: "/images/client5.png",
+  },
+  {
+    name: "Amit Singh",
+    mentions: "@amitsingh_ui",
+    review: "The interactive 3D elements he added to the browser experience made our web project stand out. Truly a premium developer.",
+    imgPath: "/images/client6.png",
+  },
+  {
+    name: "Arif Hossain",
+    mentions: "@arif_hossain",
+    review: "From a robust backend architecture with role-based access control to a pixel-perfect responsive design, he delivered an exceptional product end-to-end.",
+    imgPath: "/images/client3.png",
+  }
 ];
 
 export const abilities = [
@@ -275,15 +311,44 @@ export const Items = [
 ];
 
 export const socialImgs = [
-  { name: "instagram", imgPath: "/images/insta.png", link: "https://www.instagram.com/web_shiksha/" },
-  { name: "github", imgPath: "/images/github.png", link: "https://github.com/Sudip-KGEC" },
-  { name: "linkedin", imgPath: "/images/linkedin.png", link: "https://www.linkedin.com/in/sudip-ruidas-165b212b7/" },
+  { name: "Instagram", imgPath: "/images/insta.png", link: "https://www.instagram.com/sudip_das_78/" },
+  { name: "Github", imgPath: "/images/github.png", link: "https://github.com/Sudip-KGEC" },
+  { name: "Linkedin", imgPath: "/images/linkedin.png", link: "https://www.linkedin.com/in/sudip-das-165b212b7/" },
+  { name: "Youtube", imgPath: "/images/youtubelogo.svg", link: "https://www.youtube.com/@nobidoradev" },
 ];
 
 export const projects = [
-  { id: 1, title: "Rest-Easy", description: "Smart hotel booking with secure auth, real-time availability, and a clean guest experience end to end.", tech: ["Node.js", "Express", "MongoDB", "EJS"], url: "https://rest-easy.dev", image: "/images/project1.png" },
-  { id: 2, title: "Mocktail Zilla", description: "Immersive animated frontend with scroll-driven storytelling and fluid motion design.", tech: ["React", "GSAP", "Tailwind"], url: "https://mocktailzilla.dev", image: "/images/project2.png" },
-  { id: 3, title: "3D Portfolio", description: "WebGL-powered portfolio with interactive 3D scenes, custom shaders, and ambient sound design.", tech: ["Three.js", "React", "GLSL"], url: "https://portfolio3d.dev", image: "/images/project3.png" },
-  { id: 4, title: "YC Directory", description: "Searchable startup index with live filters, founder profiles, and funding round tracking.", tech: ["Next.js", "Sanity", "TypeScript"], url: "https://mocktailzilla.dev", image: "/images/project2.png" },
+  { 
+    id: 1, 
+    title: "PrepHire AI", 
+    description: "Comprehensive interview preparation platform featuring 1:1 mock interviews with recording and instant AI feedback. Includes an RBAC system, AI question generation for interviewers, and an upcoming autonomous AI Interviewer and Job/Internship assistant.", 
+    tech: ["Next.js" , "Animate UI", "Typescript" , "Scss/sass" , "Supabase" , "PostgreSQL" , "Arcjet" , "Stream SDK" , "Stripe" , "Google Gemini APIs"], 
+    url: "https://prephire-wine.vercel.app/",  
+    image: "/images/prephire.png" 
+  },
+  { 
+    id: 2, 
+    title: "My Portfolio", 
+    description: "Interactive 3D portfolio focused on exceptional UI/UX and performance optimization. Features responsive design, highly optimized GLB models, and excellent Core Web Vitals (LCP, CLS, INP) for a seamless browser experience.", 
+    tech: ["React.js" , "TailwindCSS" , "Animate UI" , "Three.js" , "GSAP"], 
+    url: "https://prephire-wine.vercel.app/", 
+    image: "/images/portfolio.png" 
+  },
+  { 
+    id: 3, 
+    title: "Edugrand AI", 
+    description: "Profile-based scholarship discovery platform with a streamlined application process. Features a personalized AI chatbot for student queries and a comprehensive RBAC admin panel for managing scholarship data and application statuses.", 
+    tech: ["React.js" , "Scss/sass" , "Node.js" , "Express.js" , "MongoDB" , "Google Gemini APIs"], 
+    url: "https://edugrand-ai.vercel.app/", 
+    image: "/images/edugrand.png" 
+  },
+  { 
+    id: 4, 
+    title: "Mocktail Zilla", 
+    description: "Immersive frontend web experience focused strictly on delivering incredibly smooth, scroll-driven animations and a highly polished fluid motion design.", 
+    tech: ["React.js" , "TailwindCSS" , "GSAP"], 
+    url: "https://mocktail-web-gamma.vercel.app/", 
+    image: "/images/mocktailzilla.png" 
+  },
 ];
 

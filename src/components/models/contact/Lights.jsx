@@ -3,8 +3,7 @@ import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUnifo
 
 RectAreaLightUniformsLib.init();
 
-/* stable instance — never recreated on re-render */
-const rectLight = new THREE.RectAreaLight("#ff6a00", 8, 3, 2);
+const rectLight = new THREE.RectAreaLight("#ff6a00", 2, 3, 2);
 
 const Lights = () => (
   <>
@@ -14,7 +13,7 @@ const Lights = () => (
       angle={0.15}
       penumbra={0.2}
       intensity={100}
-      color="#fff4e6"
+      color="#fff4a6"
     />
 
     {/* amber overhead fill */}

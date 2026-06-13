@@ -1,13 +1,15 @@
 /* resume download */
+
+const FILE_ID = "1bemRDy5bsoLErsqjwDOChT3VHvz4LFw9";
+
 const DownloadCVButton = () => (
   <a
-    href="/resume.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
+    href={`https://drive.google.com/uc?export=download&id=${FILE_ID}`}
+    download="Resume.pdf"
     className="inline-flex group relative"
   >
     <div className="absolute inset-0 rounded-xl bg-orange-500/30 blur-md opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-    <div className="relative px-4 md:px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm font-medium text-zinc-200 tracking-wide transition-all duration-300 group-hover:border-orange-500/50 group-hover:text-white group-hover:-translate-y-[1px]">
+    <div className="relative px-4 md:px-5 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-sm font-medium text-zinc-200 tracking-wide transition-all duration-300 group-hover:border-orange-500/50 group-hover:text-white group-hover:-translate-y-0.8">
       <div className="flex items-center gap-2">
         <span>Download CV</span>
         <svg

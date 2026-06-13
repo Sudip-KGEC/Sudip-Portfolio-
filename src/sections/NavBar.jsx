@@ -3,12 +3,15 @@ import { navLinks } from "../constants/index.jsx";
 import NavLink from "../components/NavLink.jsx";
 import ContactButton from "../components/ContactButton.jsx";
 import MobileMenu from "../components/MobileMenu.jsx";
+import useSmoothScroll from "../hooks/useSmoothScroll.js";
 
 const SCROLL_Y = 10;
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const scrollTo = useSmoothScroll();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > SCROLL_Y);
@@ -27,6 +30,7 @@ const NavBar = () => {
         {/* Logo */}
         <a
           href="#hero"
+          onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
           className="relative inline-block font-bold tracking-tight text-xl md:text-2xl transition-transform duration-300 hover:scale-105 select-none"
         >
           <span className="bg-linear-to-r from-orange-600 via-red-300 to-white bg-clip-text text-transparent mr-0.5">

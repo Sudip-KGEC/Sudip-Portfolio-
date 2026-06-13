@@ -38,10 +38,10 @@ const TechCard = memo(({ icon }) => {
       />
 
       {/* gradient fill */}
-      <div className={`absolute left-0 w-full h-full bg-gradient-to-t from-orange-950/70 via-orange-900/20 to-transparent transition-all duration-700 ${hovered ? "bottom-0" : "-bottom-full"}`} />
+      <div className={`absolute left-0 w-full h-full bg-linear-to-r from-orange-950/70 via-orange-900/20 to-transparent transition-all duration-700 ${hovered ? "bottom-0" : "-bottom-full"}`} />
 
       {/* top accent line */}
-      <div className={`absolute top-0 left-0 h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent transition-all duration-500 ${hovered ? "w-full" : "w-0"}`} />
+      <div className={`absolute top-0 left-0 h-0.5 bg-linear-to-r from-transparent via-orange-500 to-transparent transition-all duration-500 ${hovered ? "w-full" : "w-0"}`} />
 
       <div className="flex flex-col items-center relative z-10 py-10 gap-6">
         {/* SVG icon */}
@@ -60,7 +60,7 @@ const TechCard = memo(({ icon }) => {
           <p className={`text-sm font-semibold tracking-wide transition-colors duration-300 ${hovered ? "text-orange-300" : "text-white/60"}`}>
             {icon.name}
           </p>
-          <div className={`mx-auto mt-2 h-px bg-gradient-to-r from-transparent via-orange-500/60 to-transparent transition-all duration-500 ${hovered ? "w-3/4" : "w-0"}`} />
+          <div className={`mx-auto mt-2 h-px bg-linear-to-r from-transparent via-orange-500/60 to-transparent transition-all duration-500 ${hovered ? "w-3/4" : "w-0"}`} />
         </div>
       </div>
     </div>

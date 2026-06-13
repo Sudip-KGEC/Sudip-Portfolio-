@@ -132,6 +132,8 @@
   to   { transform: translateX(-50%); }
 }
 
+
+
 /* ─── base ───────────────────────────────────────────────────── */
 @layer base {
   * {
@@ -361,4 +363,9 @@ img, video, canvas {
   top: 50%;
   transform: translate(-50%, -50%);
   filter: saturate(200) blur(10px);
+}
+
+
+.sticky-card {
+  will-change: transform;
 }

@@ -44,12 +44,12 @@ const Hero = () => {
       ref={containerRef}
       className="relative w-full min-h-screen overflow-hidden bg-black flex items-center mb-6"
     >
-      {/* Background layers — all pointer-events-none so they never block content */}
+      {/* Background layers */}
       <div className="absolute inset-0 pointer-events-none select-none" style={{ zIndex: 0 }}>
         <img
           src="/images/bg.png"
           alt=""
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
           className="w-full h-full object-cover opacity-40"
         />
@@ -80,7 +80,7 @@ const Hero = () => {
             </p>
 
             <div className="hero-cta flex flex-wrap items-center justify-center gap-3 md:gap-4">
-              <Button text="See My Work" className="w-36 h-10 md:w-44 md:h-11" id="counter" />
+              <Button text="See My Work" className="w-36 h-10 md:w-44 md:h-11" id="projects" />
               <DownloadCVButton />
             </div>
           </div>

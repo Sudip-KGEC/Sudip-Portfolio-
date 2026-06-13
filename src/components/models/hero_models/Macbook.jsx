@@ -3,9 +3,9 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-const MODEL = "/models/macbook_pro-transformed.glb";
+const MODEL = "/models/macbook_pro.glb";
 
-/* singleton video — shared across re-mounts */
+
 let sharedVideo = null;
 const getSharedVideo = () => {
   if (sharedVideo) return sharedVideo;

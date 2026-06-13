@@ -1,12 +1,9 @@
 import { lazy, Suspense } from "react";
-
-// Critical above-the-fold — loaded eagerly
 import Navbar from "./sections/NavBar.jsx";
 import Hero from "./sections/Hero.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
 import PerformanceOptimizer from "./components/PerformanceOptimizer.jsx";
 
-// Below-the-fold — lazy loaded
 const Projects = lazy(() => import("./sections/Projects.jsx"));
 const FeatureCards = lazy(() => import("./sections/FeatureCards.jsx"));
 const Experience = lazy(() => import("./sections/Experience.jsx"));
@@ -15,7 +12,7 @@ const Testimonials = lazy(() => import("./sections/Testimonials.jsx"));
 const Contact = lazy(() => import("./sections/Contact.jsx"));
 const Footer = lazy(() => import("./sections/Footer.jsx"));
 
-// Minimal skeleton shown while a section loads
+
 const SectionFallback = () => (
   <div className="w-full py-20 flex justify-center items-center" aria-hidden>
     <div className="w-12 h-12 rounded-full border-2 border-orange-500/30 border-t-orange-500 animate-spin" />

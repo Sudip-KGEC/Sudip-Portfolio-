@@ -20,7 +20,7 @@ export default defineConfig({
     target: 'es2020',
     minify: "esbuild",
     sourcemap: false,
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 1500,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -35,10 +35,6 @@ export default defineConfig({
     exclude: [],
     esbuildOptions: {
       target: 'es2020',
-      // Critical: Keep React's JSX runtime intact
-      supported: {
-        'jsx': 'automatic'
-      }
     }
   },
   esbuild: {

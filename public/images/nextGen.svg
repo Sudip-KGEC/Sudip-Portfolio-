@@ -1,0 +1,11 @@
+<svg width="500" height="120" viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#673de6">
+    <polygon points="20,25 42,25 42,95 20,95" />
+    
+    <polygon points="85,25 107,25 107,95 85,95" />
+    
+    <polygon points="20,25 55,25 107,95 72,95" />
+  </g>
+  
+  <text x="135" y="78" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="44" font-weight="900" fill="#673de6" letter-spacing="2">NEXTGEN ADS</text>
+</svg>

@@ -1,11 +1,9 @@
 import { useMemo, useEffect } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
-
-const MODEL_PATH   = "/models/optimized-room.glb";
 const TEXTURE_PATH = "/images/textures/mat1.png";
+const MODEL = "/models/optimized-room.glb"
 
-/* shared, non-reactive materials that never change */
 const STATIC_MAT = {
   radiator: new THREE.MeshPhongMaterial({ color: "#fff" }),
   comp:     new THREE.MeshStandardMaterial({ color: "#1a1a1a" }),
@@ -13,22 +11,34 @@ const STATIC_MAT = {
 };
 
 export function Room(props) {
-  const { nodes, materials } = useGLTF(MODEL_PATH);
+  const { nodes, materials } = useGLTF(MODEL);
   const matcapTexture = useTexture(TEXTURE_PATH);
 
-  /* only dynamic mats that depend on a loaded asset go here */
-  const mat = useMemo(() => ({
-    curtain: new THREE.MeshPhongMaterial({ color: "#ff6a00" }),   // orange
-    body:    new THREE.MeshPhongMaterial({ map: matcapTexture }),
-    table:   new THREE.MeshPhongMaterial({ color: "#582f0e" }),
-    pillow:  new THREE.MeshPhongMaterial({ color: "#ff8c00" }),   // amber orange
-    screen:  new THREE.MeshStandardMaterial({
-      color: "#ffffff",
-      emissive: "#ff6a00",          // orange screen glow
-      emissiveIntensity: 4.0,
-      toneMapped: false,
-    }),
-  }), [matcapTexture]);
+ const mat = useMemo(() => ({
+  curtain: new THREE.MeshStandardMaterial({ 
+    color: "#1a1a1a", 
+    roughness: 0.8 
+  }),
+  body: new THREE.MeshPhongMaterial({ 
+    map: matcapTexture,
+    color: "#fff" 
+  }),
+  table: new THREE.MeshStandardMaterial({ 
+    color: "#0f0f0f", 
+    roughness: 0.4, 
+    metalness: 0.1 
+  }),
+  pillow: new THREE.MeshStandardMaterial({ 
+    color: "#ff6a00", 
+    roughness: 0.9 
+  }),
+  screen: new THREE.MeshStandardMaterial({
+    color: "#000000",
+    emissive: "#ff6a00",
+    emissiveIntensity: 0.5,
+    toneMapped: false,
+  }),
+}), [matcapTexture]);
 
   useEffect(() => {
     return () => Object.values(mat).forEach((m) => m.dispose());
@@ -74,4 +84,4 @@ export function Room(props) {
   );
 }
 
-useGLTF.preload(MODEL_PATH);
+useGLTF.preload(MODEL);
