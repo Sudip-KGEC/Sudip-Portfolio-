@@ -9,7 +9,7 @@ import HeroHeading from "../components/HeroHeading.jsx";
 import DownloadCVButton from "../components/DownloadCVButton.jsx";
 import HeroOrbit from "../components/HeroOrbit.jsx";
 import GlowBackground from "../components/GlowBackground.jsx";
-import { GravityStarsBackground } from "../components/animate-ui/components/backgrounds/gravity-stars.jsx";
+import StarsBackground  from "../components/StarsBackground.jsx";
 import { techStack } from "../constants/index.jsx";
 
 const TARGETS = [".hero-heading", ".hero-sub", ".hero-cta"];
@@ -42,10 +42,10 @@ const Hero = () => {
     <section
       id="hero"
       ref={containerRef}
-      className="relative w-full min-h-screen overflow-hidden bg-black flex items-center mb-6"
+      className="relative w-full min-h-screen overflow-hidden bg-black flex items-center mb-6 mt-6"
     >
       {/* Background layers */}
-      <div className="absolute inset-0 pointer-events-none select-none" style={{ zIndex: 0 }}>
+      <div className="absolute inset-0 pointer-events-none select-none" style={{ zIndex: 3 }}>
         <img
           src="/images/bg.png"
           alt=""
@@ -60,24 +60,18 @@ const Hero = () => {
       </div>
 
       <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
-        <GravityStarsBackground />
+        <StarsBackground />
       </div>
 
       {/* All content above backgrounds */}
-      <div className="relative w-full max-w-360 mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 pt-18 md:pt-20 pb-10 gap-14 md:gap-10" style={{ zIndex: 10 }}>
-        <div className="w-full md:w-[55%] flex flex-col gap-8 md:gap-10">
-          <div className="flex flex-col justify-center items-center md:items-start gap-5 md:gap-6">
+      <div className="relative w-full max-w-360 mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 pt-18 md:pt-20 pb-10 gap-12 md:gap-8" style={{ zIndex: 10 }}>
+        <div className="w-full md:w-[55%] flex flex-col gap-8 md:gap-6">
+          <div className="flex flex-col justify-center items-center md:items-start gap-5 md:gap-4">
             <div className="hero-sub">
               <OpenToWorkBadge />
             </div>
 
             <HeroHeading />
-
-            <p className="hero-sub max-w-xl text-base md:text-lg leading-relaxed text-white/60">
-              Sudip — Full Stack Developer from India specializing in React,
-              Next.js, Node.js and modern web applications. I build fast,
-              scalable products from idea to deployment.
-            </p>
 
             <div className="hero-cta flex flex-wrap items-center justify-center gap-3 md:gap-4">
               <Button text="See My Work" className="w-36 h-10 md:w-44 md:h-11" id="projects" />

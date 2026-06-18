@@ -12,7 +12,6 @@ const Testimonials = lazy(() => import("./sections/Testimonials.jsx"));
 const Contact = lazy(() => import("./sections/Contact.jsx"));
 const Footer = lazy(() => import("./sections/Footer.jsx"));
 
-
 const SectionFallback = () => (
   <div className="w-full py-20 flex justify-center items-center" aria-hidden>
     <div className="w-12 h-12 rounded-full border-2 border-orange-500/30 border-t-orange-500 animate-spin" />
@@ -28,19 +27,19 @@ const App = () => (
 
     <div className="relative z-10">
       <Suspense fallback={<SectionFallback />}>
+        <TechStack />
+      </Suspense>
+
+      <Suspense fallback={<SectionFallback />}>
         <Projects />
       </Suspense>
-      
+
       <Suspense fallback={<SectionFallback />}>
         <FeatureCards />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>
         <Experience />
-      </Suspense>
-
-      <Suspense fallback={<SectionFallback />}>
-        <TechStack />
       </Suspense>
 
       <Suspense fallback={<SectionFallback />}>

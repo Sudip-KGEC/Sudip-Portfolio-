@@ -6,7 +6,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 
 import { Room } from "./Room.jsx";
 import Lights from "./Lights.jsx";
-import LoadingSkeleton from "../../LoadingSkeleton.jsx";
+import RoomSkeleton from "../../RoomSkeleton.jsx";
 
 const ContactExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
@@ -14,7 +14,7 @@ const ContactExperience = () => {
 
   return (
     <div className="relative w-full h-full">
-      <Suspense fallback={<LoadingSkeleton />}>
+      <Suspense fallback={<RoomSkeleton />}>
         <Canvas camera={{ position: [0, 0, 11], fov: 45 }}>
           <ambientLight intensity={0.2} color="#1a1a40" />
           

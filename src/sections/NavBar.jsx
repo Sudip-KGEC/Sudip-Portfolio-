@@ -26,19 +26,20 @@ const NavBar = () => {
       }`}
     >
       <div className="relative mx-auto flex items-center justify-between px-5 md:px-10 py-2 md:py-4">
-
         {/* Logo */}
         <a
           href="#hero"
-          onClick={(e) => { e.preventDefault(); scrollTo("#hero"); }}
-          className="relative inline-block font-bold tracking-tight text-xl md:text-2xl transition-transform duration-300 hover:scale-105 select-none"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollTo("#hero");
+          }}
+          className="relative inline-block transition-transform duration-300 hover:scale-105 select-none"
         >
-          <span className="bg-linear-to-r from-orange-600 via-red-300 to-white bg-clip-text text-transparent mr-0.5">
-            Sudip.
-          </span>
-          <span className="text-yellow-400 font-medium ml-0.5 animate-pulse">
-            &thinsp;:)
-          </span>
+          <img
+            src="/images/logo.png"
+            alt="Sudip Logo"
+            className="h-12 md:h-13 w-auto"
+          />
         </a>
 
         {/* Desktop nav */}
@@ -62,11 +63,16 @@ const NavBar = () => {
           aria-expanded={menuOpen}
           className="lg:hidden flex flex-col justify-center gap-1.5 w-5 h-4"
         >
-          <span className={`block h-0.5 bg-zinc-300 rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`block h-0.5 bg-zinc-300 rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block h-0.5 bg-zinc-300 rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span
+            className={`block h-0.5 bg-zinc-300 rounded transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+          />
+          <span
+            className={`block h-0.5 bg-zinc-300 rounded transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+          />
+          <span
+            className={`block h-0.5 bg-zinc-300 rounded transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+          />
         </button>
-
       </div>
 
       {/* Mobile drawer */}

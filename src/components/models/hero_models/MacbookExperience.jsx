@@ -1,8 +1,8 @@
-import { Suspense, useState, useRef, useCallback } from "react";
+import { Suspense, useState, useRef, useCallback, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Center } from "@react-three/drei";
 import { Macbook } from "./Macbook.jsx";
-import LoadingSkeleton from "../../LoadingSkeleton.jsx";
+import LaptopSkeleton from "../../LaptopSkeleton.jsx";
 import MuteButton from "../../MuteButton.jsx";
 
 const INTERACTION_TIMEOUT = 1500;
@@ -10,8 +10,20 @@ const INTERACTION_TIMEOUT = 1500;
 const MacbookExperience = () => {
   const [isInteracting, setIsInteracting] = useState(false);
   const [muted, setMuted] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
   const timeoutRef = useRef(null);
   const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleInteractionStart = useCallback(() => {
     setIsInteracting(true);
@@ -31,12 +43,13 @@ const MacbookExperience = () => {
         onPointerDown={handleInteractionStart}
         onTouchStart={handleInteractionStart}
       >
-        <Suspense fallback={<LoadingSkeleton />}>
+        <Suspense fallback={<LaptopSkeleton />}>
           <Canvas
             className="absolute inset-0"
             camera={{ position: [3, 0.8, 3.2], fov: 18 }}
-            gl={{ alpha: true, antialias: true }}
-            dpr={[1, 2]}
+            gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
+            dpr={[1, 1.5]}
+            frameloop={isVisible ? "always" : "never"}
           >
             <ambientLight intensity={4.5} />
             <directionalLight position={[-1, -1, -3]} intensity={0.04} color="#ffffff" />

@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect, lazy, Suspense } from "react";
 import { projects } from "../constants/index.jsx";
 import TitleHeader from "../components/TitleHeader.jsx";
-import CardSkeleton from "../components/CardSkeleton.jsx";
+import CardSkeleton from "../components/LaptopSkeleton.jsx";
 const ProjectCard = lazy(() => import("../components/ProjectCard.jsx"));
 
 

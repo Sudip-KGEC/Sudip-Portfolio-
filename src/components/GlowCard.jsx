@@ -1,26 +1,35 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 
-const GlowCard = ({ card, index, children }) => {
-  const cardRefs = useRef([]);
+const GlowCard = ({ card, children }) => {
+  const cardRef = useRef(null);
+  const rectRef = useRef(null);
   const [hovered, setHovered] = useState(false);
 
-  const handleMouseMove = (index) => (e) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
+  const handleMouseEnter = useCallback(() => {
+    rectRef.current = cardRef.current?.getBoundingClientRect() ?? null;
+    setHovered(true);
+  }, []);
+
+  const handleMouseMove = useCallback((e) => {
+    const card = cardRef.current;
+    const rect = rectRef.current;
+    if (!card || !rect) return;
+
     const mouseX = e.clientX - rect.left - rect.width / 2;
     const mouseY = e.clientY - rect.top - rect.height / 2;
     let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
     angle = (angle + 360) % 360;
     card.style.setProperty("--start", angle + 60);
-  };
+  }, []);
+
+  const handleMouseLeave = useCallback(() => setHovered(false), []);
 
   return (
     <div
-      ref={(el) => (cardRefs.current[index] = el)}
-      onMouseMove={handleMouseMove(index)}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      ref={cardRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="card card-border rounded-2xl p-8 mb-5 break-inside-avoid-column relative overflow-hidden transition-transform duration-300"
       style={{ transform: hovered ? "translateY(-4px)" : "translateY(0)" }}
     >
@@ -40,6 +49,8 @@ const GlowCard = ({ card, index, children }) => {
             key={i}
             src="/images/star.png"
             alt="star"
+            loading="lazy"
+            decoding="async"
             className="size-4 transition-transform duration-200"
             style={{ transform: hovered ? `translateY(${-i * 1.5}px)` : "translateY(0)" }}
           />

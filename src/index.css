@@ -1,108 +1,85 @@
 @import "tailwindcss";
 
-/* ─── design tokens ─────────────────────────────────────────── */
+/* ── design tokens ── */
 :root {
-  --color-white:          #ffffff;
-  --color-white-50:       #c8c8c8;
-  --color-black:          #040504;
-  --color-black-50:       #181c19;
-  --color-black-100:      #0a0d0b;
-  --color-black-200:      #232a26;
-  --color-green-50:       #037579;
-  --color-green-800:      #1b4332;
-  --color-blue-green-50:  #4ea397;
+  --color-white: #ffffff;
+  --color-white-50: #c8c8c8;
+  --color-black: #040504;
+  --color-black-50: #181c19;
+  --color-black-100: #0a0d0b;
+  --color-black-200: #232a26;
+  --color-green-50: #037579;
+  --color-green-800: #1b4332;
+  --color-blue-green-50: #4ea397;
   --color-blue-green-100: #264a45;
-  --color-tech-bg:        #1e332f;
+  --color-tech-bg: #1e332f;
 
   --gradient: conic-gradient(
     from calc((var(--start) - 15) * 1deg),
     var(--color-blue-green-50) 0deg,
-    var(--color-green-50)      50deg,
-    transparent                100deg
+    var(--color-green-50) 50deg,
+    transparent 100deg
   );
 
-  --background:                #000000;
-  --foreground:                #ffffff;
-  --card:                      #0a0d0b;
-  --card-foreground:           #ffffff;
-  --popover:                   #0a0d0b;
-  --popover-foreground:        #ffffff;
-  --primary:                   #ffffff;
-  --primary-foreground:        #000000;
-  --secondary:                 #181c19;
-  --secondary-foreground:      #ffffff;
-  --muted:                     #181c19;
-  --muted-foreground:          #c8c8c8;
-  --accent:                    #181c19;
-  --accent-foreground:         #ffffff;
-  --destructive:               oklch(0.577 0.245 27.325);
-  --border:                    #181c19;
-  --input:                     #181c19;
-  --ring:                      #c8c8c8;
-  --radius:                    0.625rem;
-  --sidebar:                   #0a0d0b;
-  --sidebar-foreground:        #ffffff;
-  --sidebar-primary:           #ffffff;
-  --sidebar-primary-foreground:#000000;
-  --sidebar-accent:            #181c19;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border:            #181c19;
-  --sidebar-ring:              #c8c8c8;
+  --background: #000000;
+  --foreground: #ffffff;
+  --card: #0a0d0b;
+  --card-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #181c19;
+  --secondary-foreground: #ffffff;
+  --muted: #181c19;
+  --muted-foreground: #c8c8c8;
+  --accent: #181c19;
+  --accent-foreground: #ffffff;
+  --border: #181c19;
+  --input: #181c19;
+  --ring: #c8c8c8;
+  --radius: 0.625rem;
 }
 
-/* ─── tailwind theme ────────────────────────────────────────── */
+/* ── tailwind theme mapping ── */
 @theme inline {
-  --font-sans:    'Geist Variable', sans-serif;
-  --font-heading: var(--font-sans);
+  --font-sans: "Geist Variable", sans-serif;
 
-  --color-white:          var(--color-white);
-  --color-white-50:       var(--color-white-50);
-  --color-black:          var(--color-black);
-  --color-black-50:       var(--color-black-50);
-  --color-black-100:      var(--color-black-100);
-  --color-black-200:      var(--color-black-200);
-  --color-green-50:       var(--color-green-50);
-  --color-green-800:      var(--color-green-800);
-  --color-blue-green-50:  var(--color-blue-green-50);
+  --color-white: var(--color-white);
+  --color-white-50: var(--color-white-50);
+  --color-black: var(--color-black);
+  --color-black-50: var(--color-black-50);
+  --color-black-100: var(--color-black-100);
+  --color-black-200: var(--color-black-200);
+  --color-green-50: var(--color-green-50);
+  --color-green-800: var(--color-green-800);
+  --color-blue-green-50: var(--color-blue-green-50);
   --color-blue-green-100: var(--color-blue-green-100);
-  --color-tech-bg:        var(--color-tech-bg);
+  --color-tech-bg: var(--color-tech-bg);
 
-  --color-background:                 var(--background);
-  --color-foreground:                 var(--foreground);
-  --color-card:                       var(--card);
-  --color-card-foreground:            var(--card-foreground);
-  --color-popover:                    var(--popover);
-  --color-popover-foreground:         var(--popover-foreground);
-  --color-primary:                    var(--primary);
-  --color-primary-foreground:         var(--primary-foreground);
-  --color-secondary:                  var(--secondary);
-  --color-secondary-foreground:       var(--secondary-foreground);
-  --color-muted:                      var(--muted);
-  --color-muted-foreground:           var(--muted-foreground);
-  --color-accent:                     var(--accent);
-  --color-accent-foreground:          var(--accent-foreground);
-  --color-destructive:                var(--destructive);
-  --color-border:                     var(--border);
-  --color-input:                      var(--input);
-  --color-ring:                       var(--ring);
-  --color-sidebar:                    var(--sidebar);
-  --color-sidebar-foreground:         var(--sidebar-foreground);
-  --color-sidebar-primary:            var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent:             var(--sidebar-accent);
-  --color-sidebar-accent-foreground:  var(--sidebar-accent-foreground);
-  --color-sidebar-border:             var(--sidebar-border);
-  --color-sidebar-ring:               var(--sidebar-ring);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
-  --radius-sm:  calc(var(--radius) * 0.6);
-  --radius-md:  calc(var(--radius) * 0.8);
-  --radius-lg:  var(--radius);
-  --radius-xl:  calc(var(--radius) * 1.4);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  --animate-marquee:    marquee 60s linear infinite;
+  --animate-marquee: marquee 60s linear infinite;
   --animate-word-slide: wordSlider 21s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
   --animate-scroll-ltr: scroll-ltr 30s linear infinite;
 
@@ -111,13 +88,13 @@
     to   { transform: translateX(-50%); }
   }
   @keyframes wordSlider {
-    0%    { transform: translateY(0.5%);   }
+    0%    { transform: translateY(0.5%); }
     12.5% { transform: translateY(-12.5%); }
-    25%   { transform: translateY(-25%);   }
+    25%   { transform: translateY(-25%); }
     37.5% { transform: translateY(-37.5%); }
-    50%   { transform: translateY(-50%);   }
+    50%   { transform: translateY(-50%); }
     62.5% { transform: translateY(-62.5%); }
-    75%   { transform: translateY(-75%);   }
+    75%   { transform: translateY(-75%); }
     87.5% { transform: translateY(-87.5%); }
   }
   @keyframes scroll-ltr {
@@ -126,19 +103,14 @@
   }
 }
 
-/* ─── keyframes (must be at root, not inside @theme) ─────────── */
 @keyframes ticker-rtl {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
 
-
-
-/* ─── base ───────────────────────────────────────────────────── */
+/* ── base ── */
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+  * { @apply border-border outline-ring/50; }
   html {
     @apply font-sans;
     scroll-behavior: smooth;
@@ -151,23 +123,17 @@
     color: #ffffff;
     font-family: var(--font-sans);
   }
-  section {
-    width: 100dvw;
-  }
+  section { width: 100dvw; }
 }
 
-/* ─── performance ────────────────────────────────────────────── */
+/* ── performance ── */
 * { -webkit-tap-highlight-color: transparent; }
 
-.gpu-accelerated {
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
-}
 img, video, canvas {
   content-visibility: auto;
   contain-intrinsic-size: auto 300px;
 }
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -175,13 +141,12 @@ img, video, canvas {
   }
 }
 
-/* ─── utilities ──────────────────────────────────────────────── */
+/* ── layout utilities ── */
 @layer utilities {
   .flex-center     { @apply flex justify-center items-center; }
   .flex-col-center { @apply flex flex-col justify-center items-center; }
 }
 
-/* ─── components ─────────────────────────────────────────────── */
 @layer components {
 
   /* spacing */
@@ -200,7 +165,7 @@ img, video, canvas {
   /* app showcase */
   .app-showcase {
     @apply w-full mt-20 px-5 py-10 flex items-center justify-center md:px-20 md:py-20;
-    .showcaselayout      { @apply flex flex-col gap-10 justify-between xl:flex-row; }
+    .showcaselayout { @apply flex flex-col gap-10 justify-between xl:flex-row; }
     .first-project-wrapper {
       @apply h-full flex flex-col justify-between xl:w-[60%];
       .image-wrapper {
@@ -210,7 +175,7 @@ img, video, canvas {
       .text-content {
         @apply space-y-5 mt-5;
         .badges { @apply flex gap-2 mb-4; }
-        h2      { @apply text-2xl font-bold md:text-3xl lg:text-4xl; }
+        h2 { @apply text-2xl font-bold md:text-3xl lg:text-4xl; }
       }
     }
     .project-list-wrapper {
@@ -224,7 +189,7 @@ img, video, canvas {
   /* card */
   .card-border { @apply border border-black-50 bg-black-100; }
 
-  /* marquee */
+  /* marquee / ticker */
   .marquee {
     width: 100dvw;
     overflow: hidden;
@@ -239,15 +204,8 @@ img, video, canvas {
     overflow: hidden;
     animation: var(--animate-marquee);
   }
-  .marquee-item {
-    @apply w-32 md:w-40;
-    float: left;
-  }
-
-  /* ticker */
-  .ticker-rtl {
-    animation: ticker-rtl 40s linear infinite;
-  }
+  .marquee-item { @apply w-32 md:w-40; float: left; }
+  .ticker-rtl { animation: ticker-rtl 40s linear infinite; }
 
   /* gradient edges */
   .gradient-edge {
@@ -263,11 +221,9 @@ img, video, canvas {
   .exp-card-wrapper { @apply flex flex-col-reverse gap-10 justify-between xl:flex-row xl:gap-20; }
 
   /* tech stack */
-  .tech-grid            { @apply grid grid-cols-1 gap-5 mt-16 md:grid-cols-3 md:gap-10 xl:grid-cols-5 xl:gap-16; }
-  .tech-icon-wrapper    { @apply flex justify-center items-center w-52 h-60 relative; }
-  .tech-card-animated-bg {
-    @apply absolute left-0 bottom-full w-full h-full bg-tech-bg transition-all duration-700;
-  }
+  .tech-grid             { @apply grid grid-cols-1 gap-5 mt-16 md:grid-cols-3 md:gap-10 xl:grid-cols-5 xl:gap-16; }
+  .tech-icon-wrapper     { @apply flex justify-center items-center w-52 h-60 relative; }
+  .tech-card-animated-bg { @apply absolute left-0 bottom-full w-full h-full bg-tech-bg transition-all duration-700; }
   .group:hover .tech-card-animated-bg { @apply bottom-0; }
   .tech-card-content {
     @apply flex flex-col items-center overflow-hidden relative z-10 md:justify-center xl:gap-5 xl:h-[50vh];
@@ -275,7 +231,7 @@ img, video, canvas {
     & p { @apply text-lg pb-5 font-semibold text-white-50 text-center xl:pb-0 2xl:text-2xl; }
   }
 
-  /* contact */
+  /* contact form */
   .contact-form {
     label { @apply block text-white-50 mb-2; }
     input, textarea {
@@ -300,7 +256,7 @@ img, video, canvas {
   }
 }
 
-/* ─── word slider ─────────────────────────────────────────────── */
+/* ── word slider ── */
 .slide {
   display: inline-block;
   transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
@@ -311,20 +267,20 @@ img, video, canvas {
   animation: var(--animate-word-slide);
 }
 
-/* ─── gradient line ───────────────────────────────────────────── */
+/* ── gradient line ── */
 .gradient-line {
   width: 2px;
   background: linear-gradient(
     0deg,
-    rgba(104, 179, 130, 0)     0%,
-    var(--color-green-50)       25%,
-    var(--color-blue-green-50)  50%,
+    rgba(104, 179, 130, 0) 0%,
+    var(--color-green-50) 25%,
+    var(--color-blue-green-50) 50%,
     var(--color-blue-green-100) 75%,
-    var(--color-green-800)      100%
+    var(--color-green-800) 100%
   );
 }
 
-/* ─── card glow border ────────────────────────────────────────── */
+/* ── card glow border ── */
 .card {
   --start: 0;
   position: relative;
@@ -365,7 +321,4 @@ img, video, canvas {
   filter: saturate(200) blur(10px);
 }
 
-
-.sticky-card {
-  will-change: transform;
-}
+.sticky-card { will-change: transform; }

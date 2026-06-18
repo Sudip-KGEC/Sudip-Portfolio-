@@ -5,7 +5,6 @@ import * as THREE from "three";
 
 const MODEL = "/models/macbook_pro.glb";
 
-
 let sharedVideo = null;
 const getSharedVideo = () => {
   if (sharedVideo) return sharedVideo;
@@ -14,9 +13,8 @@ const getSharedVideo = () => {
     loop: true,
     muted: true,
     playsInline: true,
-    autoplay: true,
     crossOrigin: "anonymous",
-    preload: "auto",
+    preload: "metadata",
   });
   return sharedVideo;
 };
@@ -36,18 +34,19 @@ export function Macbook({ isInteracting, muted, sectionRef, ...props }) {
     return t;
   }, [video]);
 
-  /* initial play + texture cleanup */
+  /* texture cleanup only — play/pause is handled entirely by the
+     IntersectionObserver below, so we don't force-play on mount */
   useEffect(() => {
-    video.play().catch(() => {});
     return () => videoTexture.dispose();
-  }, [video, videoTexture]);
+  }, [videoTexture]);
 
   /* sync mute */
   useEffect(() => {
     video.muted = muted ?? true;
   }, [muted, video]);
 
-  /* pause when off-screen */
+  /* play when visible, pause when off-screen — single source of truth
+     for video playback */
   useEffect(() => {
     const target = sectionRef?.current;
     if (!target) return;
